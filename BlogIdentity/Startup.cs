@@ -39,8 +39,6 @@ namespace BlogIdentity
             });
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddScoped<IGetUserClaims, GetUserClaims>();
-
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
