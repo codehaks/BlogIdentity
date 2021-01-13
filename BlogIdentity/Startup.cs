@@ -39,7 +39,7 @@ namespace BlogIdentity
             });
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddTransient<IGetUserClaims, GetUserClaims>();
+            services.AddScoped<IGetUserClaims, GetUserClaims>();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();

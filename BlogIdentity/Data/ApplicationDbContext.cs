@@ -12,21 +12,19 @@ namespace BlogIdentity.Data
     {
         private readonly IGetUserClaims _claims;
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,IGetUserClaims claims)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IGetUserClaims claims)
             : base(options)
         {
-            //CurrentUserId = claims.UserId;
             _claims = claims;
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Post>().HasQueryFilter(p => p.UserId == _claims.UserId);
+            builder.Entity<Post>()
+                .HasQueryFilter(p => p.UserId == _claims.UserId);
+
             base.OnModelCreating(builder);
-
         }
-
-        //private readonly string CurrentUserId;
 
         public DbSet<Post> Posts { get; set; }
     }
