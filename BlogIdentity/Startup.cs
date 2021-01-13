@@ -1,3 +1,4 @@
+using BlogIdentity.Common;
 using BlogIdentity.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,6 +42,7 @@ namespace BlogIdentity
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            services.AddScoped<IGetUserClaims, GetUserClaims>();
             services.AddRazorPages();
             
         }
