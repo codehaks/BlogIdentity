@@ -1,0 +1,12 @@
+﻿@page
+@model BlogIdentity.Pages.CreateModel
+@{
+}
+
+<form method="post">
+    <input asp-for="Post.Title" class="form-control" />
+    
+    <br />
+    <button class="btn btn-primary">Submit</button>
+    <a class="btn btn-link" asp-page="/blogs/index">Back to List</a>
+</form>
