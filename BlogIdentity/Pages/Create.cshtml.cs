@@ -4,14 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using BlogIdentity.Data;
 using BlogIdentity.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BlogIdentity.Pages
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
-        public Post Post { get; set; }
+        [BindProperty]
+        public string Title { get; set; }
+
         private readonly ApplicationDbContext _db;
 
         public CreateModel(ApplicationDbContext db)
@@ -19,13 +23,19 @@ namespace BlogIdentity.Pages
             _db = db;
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            Post.UserId = User.GetUserId();
 
-            _db.Posts.Add(Post);
+
+            _db.Posts.Add(new Post
+            {
+                UserId = User.GetUserId(),
+                Title = Title
+            });
 
             _db.SaveChanges();
+
+            return RedirectToPage("./index");
         }
     }
 }
