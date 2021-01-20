@@ -12,22 +12,26 @@
             <th>Id</th>
             <th>Title</th>
             <th>User</th>
+            <th>Link</th>
+            <th>Url</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var blog in Model.Posts)
         {
-            <tr>
-                <td>@blog.Id</td>
-                <td>@blog.Title</td>
-                <td>@blog.UserId</td>
-                <td>
-                    <a asp-page="Details" asp-route-id="@blog.Id" class="btn btn-light">Details</a>
-                    <a asp-page="Edit" asp-route-id="@blog.Id" class="btn btn-primary">Edit</a>
-                    <a asp-page="Delete" asp-route-id="@blog.Id" class="btn btn-danger">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>@blog.Id</td>
+            <td>@blog.Title</td>
+            <td>@blog.UserId</td>
+            <td>@blog.ShortLink</td>
+            <td>@blog.Url</td>
+            <td>
+                <a asp-page="Details" asp-route-id="@blog.Id" class="btn btn-light">Details</a>
+                <a asp-page="Edit" asp-route-id="@blog.Id" class="btn btn-primary">Edit</a>
+                <a asp-page="Delete" asp-route-id="@blog.Id" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

@@ -1,4 +1,3 @@
-using BlogIdentity.Common;
 using BlogIdentity.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
