@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -25,9 +26,12 @@ namespace BlogIdentity.Pages
         }
         public IList<Post> Posts { get; set; }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGet()
         {
+            var client = new HttpClient();
+            await client.GetAsync("https://google.com");
             Posts = _db.Posts.ToList();
+            return Page();
         }
     }
 }

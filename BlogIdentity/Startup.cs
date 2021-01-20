@@ -44,7 +44,10 @@ namespace BlogIdentity
 
             services.AddScoped<IGetUserClaims, GetUserClaims>();
             services.AddRazorPages();
-            
+
+            services.AddMiniProfiler().AddEntityFramework(); ;
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,6 +72,8 @@ namespace BlogIdentity
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseMiniProfiler();
 
             app.UseEndpoints(endpoints =>
             {
