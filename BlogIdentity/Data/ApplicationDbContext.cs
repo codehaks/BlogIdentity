@@ -15,6 +15,7 @@ namespace BlogIdentity.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IGetUserClaims claims)
             : base(options)
         {
+            options.
             _claims = claims;
         }
 
