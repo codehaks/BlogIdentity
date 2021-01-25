@@ -35,7 +35,7 @@ namespace BlogIdentity
                 options.LogTo(Console.WriteLine);
 
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection"));
+                    Configuration.GetConnectionString("Europe"));
             });
             services.AddDatabaseDeveloperPageExceptionFilter();
 
