@@ -30,13 +30,14 @@ namespace BlogIdentity.Data
                 continent = "DefaultConnection";
             }
             optionsBuilder.UseSqlServer(Configuration.GetConnectionString(continent));
+
             base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Post>()
-                .HasQueryFilter(p => p.UserId == _claims.UserId);
+            builder.Entity<Post>();
+                //.HasQueryFilter(p => p.UserId == _claims.UserId);
 
             base.OnModelCreating(builder);
         }

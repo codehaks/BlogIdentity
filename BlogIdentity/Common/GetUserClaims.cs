@@ -18,7 +18,14 @@ namespace BlogIdentity.Common
             }
         }
 
-        public string Continent { get { return _accessor.HttpContext.GetRouteValue("Continent")?.ToString(); } }
+        public string Continent
+        {
+            get
+            {
+                return _accessor.HttpContext
+                    .GetRouteValue("Continent")?.ToString();
+            }
+        }
         private readonly IHttpContextAccessor _accessor;
 
         public GetUserClaims(IHttpContextAccessor accessor)
