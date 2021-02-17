@@ -1,5 +1,6 @@
 using BlogIdentity.Common;
 using BlogIdentity.Data;
+using BlogIdentity.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -45,6 +46,8 @@ namespace BlogIdentity
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddRazorPages();
+            services.AddControllers();
+            services.AddTransient<BlogService>();
             
         }
 
@@ -74,6 +77,7 @@ namespace BlogIdentity
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }
