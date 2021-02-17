@@ -23,13 +23,12 @@ namespace BlogIdentity.Pages
             _logger = logger;
             _db = db;
         }
-        public IList<Post> Posts { get; set; }
+
         public IList<Blog> Blogs { get; set; }
         public void OnGet()
         {
-            Posts = _db.Posts.ToList();
 
-            var blogs = _db.Blogs.Include(b => b.Posts).ToList();
+            Blogs = _db.Blogs.Include(b => b.Posts).ToList();
    
         }
     }
