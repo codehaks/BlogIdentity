@@ -22,7 +22,7 @@ namespace BlogIdentity.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Post>();
+            //builder.Entity<Post>();
             builder.Entity<Blog>().HasData(new Blog { Id = 1, Name = "Codehaks", TimeCreated = DateTime.Now });
             builder.Entity<Blog>().HasData(new Blog { Id = 2, Name = "Devs", TimeCreated = DateTime.Now.AddDays(-5) });
             builder.Entity<Blog>().HasData(new Blog { Id = 3, Name = "Dotnet", TimeCreated = DateTime.Now.AddDays(-3) });
