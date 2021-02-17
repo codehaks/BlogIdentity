@@ -4,29 +4,23 @@
     ViewData["Title"] = "Home page";
 }
 
-<a asp-page="create" class="btn btn-primary m-3">Create</a>
-<br />
 <table class="table">
     <thead>
         <tr>
             <th>Id</th>
-            <th>Title</th>
-            <th>User</th>
+            <th>Name</th>
+            <th>Count</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var blog in Model.Posts)
+        @foreach (var blog in Model.Blogs)
         {
             <tr>
                 <td>@blog.Id</td>
-                <td>@blog.Title</td>
-                <td>@blog.UserId</td>
-                <td>
-                    <a asp-page="Details" asp-route-id="@blog.Id" class="btn btn-light">Details</a>
-                    <a asp-page="Edit" asp-route-id="@blog.Id" class="btn btn-primary">Edit</a>
-                    <a asp-page="Delete" asp-route-id="@blog.Id" class="btn btn-danger">Delete</a>
-                </td>
+                <td>@blog.Name</td>
+                <td>@blog.Posts.Count()</td>
+               
             </tr>
         }
     </tbody>
