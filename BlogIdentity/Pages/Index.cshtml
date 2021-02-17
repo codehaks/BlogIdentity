@@ -1,4 +1,4 @@
-﻿@page "{continent?}"
+﻿@page
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -8,19 +8,16 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Count</th>
+            <th>Title</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var blog in Model.Blogs)
+        @foreach (var post in Model.Posts)
         {
             <tr>
-                <td>@blog.Id</td>
-                <td>@blog.Name</td>
-                <td>@blog.Posts.Count()</td>
-               
+                <td>@post.Id</td>
+                <td>@post.Title</td>
             </tr>
         }
     </tbody>

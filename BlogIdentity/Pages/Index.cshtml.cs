@@ -24,12 +24,10 @@ namespace BlogIdentity.Pages
             _db = db;
         }
 
-        public IList<Blog> Blogs { get; set; }
+        public IList<Post> Posts { get; set; }
         public void OnGet()
         {
-
-            Blogs = _db.Blogs.Include(b => b.Posts).ToList();
-   
+            Posts = _db.Posts.ToList();   
         }
     }
 }
