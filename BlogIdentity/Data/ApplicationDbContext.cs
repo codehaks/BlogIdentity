@@ -23,11 +23,11 @@ namespace BlogIdentity.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Post>();
-                //.HasQueryFilter(p => p.UserId == _claims.UserId);
-
             base.OnModelCreating(builder);
         }
 
+        public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }
