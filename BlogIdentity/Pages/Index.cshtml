@@ -9,16 +9,20 @@
         <tr>
             <th>Id</th>
             <th>Title</th>
+            <th>Email</th>
+            <th>Comments</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var post in Model.Posts)
         {
-            <tr>
-                <td>@post.Id</td>
-                <td>@post.Title</td>
-            </tr>
+        <tr>
+            <td>@post.Id</td>
+            <td>@post.Title</td>
+            <td>@post.User.Email</td>
+            <td>@post.CommentCount</td>
+        </tr>
         }
     </tbody>
 </table>

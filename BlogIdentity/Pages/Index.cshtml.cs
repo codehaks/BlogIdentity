@@ -27,7 +27,7 @@ namespace BlogIdentity.Pages
         public IList<Post> Posts { get; set; }
         public void OnGet()
         {
-            Posts = _db.Posts.ToList();   
+            Posts = _db.Posts.Include(p=>p.User).ToList();   
         }
     }
 }
