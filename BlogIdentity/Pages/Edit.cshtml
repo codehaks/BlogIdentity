@@ -1,0 +1,16 @@
+﻿@page
+@model BlogIdentity.Pages.EditModel
+@{
+}
+
+<form method="post">
+    <input asp-for="Id" class="form-control" hidden />
+    <input asp-for="Title" class="form-control" />
+
+    <br />
+    <input asp-for="Price" class="form-control" />
+
+    <br />
+    <button class="btn btn-primary">Submit</button>
+    <a class="btn btn-link" asp-page="/blogs/index">Back to List</a>
+</form>

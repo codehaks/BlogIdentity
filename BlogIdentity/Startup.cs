@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace BlogIdentity
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.LogTo(Console.WriteLine);
+                options.LogTo(Console.WriteLine,LogLevel.Information);
 
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"));

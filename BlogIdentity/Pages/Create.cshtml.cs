@@ -27,13 +27,18 @@ namespace BlogIdentity.Pages
         {
 
 
-            _db.Posts.Add(new Post
+            var  post = new Post
             {
                 UserId = User.GetUserId(),
-                Title = Title
-            });
-
+                Title = Title,
+                Price=5
+            };
+            _db.Posts.Add(post);
             _db.SaveChanges();
+
+            post.Price = 100;
+            post.Title = "New!";
+            var count=_db.SaveChanges();
 
             return RedirectToPage("./index");
         }

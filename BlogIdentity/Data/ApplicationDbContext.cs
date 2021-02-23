@@ -22,8 +22,16 @@ namespace BlogIdentity.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Post>();
-                //.HasQueryFilter(p => p.UserId == _claims.UserId);
+            //builder.Entity<Post>()
+            //    .Property(p => p.Title)
+            //    .IsConcurrencyToken()
+            //    .ValueGeneratedOnUpdate();
+
+            //builder.Entity<Post>()
+            //   .Property(p => p.Price)
+            //   .IsConcurrencyToken()
+            //   .ValueGeneratedOnUpdate();
+
 
             base.OnModelCreating(builder);
         }
