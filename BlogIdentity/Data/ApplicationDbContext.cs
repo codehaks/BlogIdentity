@@ -11,13 +11,12 @@ namespace BlogIdentity.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public IConfiguration Configuration { get; }
-
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IConfiguration configuration)
+    
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
 
-            Configuration = configuration;
+
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
