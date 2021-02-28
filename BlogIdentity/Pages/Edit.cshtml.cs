@@ -6,6 +6,7 @@ using BlogIdentity.Data;
 using BlogIdentity.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogIdentity.Pages
 {
@@ -40,7 +41,18 @@ namespace BlogIdentity.Pages
             var post = _db.Posts.Find(Id);
             post.Title = Title;
             post.Price = Price;
-            _db.SaveChanges();
+
+            try
+            {
+                _db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                TempData["message"] = $"Can not update : {ex.Message}!";
+                return RedirectToPage("./index");
+            }
+
+            
 
             return RedirectToPage("./index");
         }

@@ -4,6 +4,11 @@
     ViewData["Title"] = "Home page";
 }
 
+@if (TempData["message"] is not null)
+{
+<div class="alert alert-danger">@TempData["message"]</div>
+}
+
 <table class="table">
     <thead>
         <tr>

@@ -19,20 +19,17 @@ namespace BlogIdentity.Models
     {
         public int Id { get; set; }
 
-        [ConcurrencyCheck]
+        //[ConcurrencyCheck]
         public string Title { get; set; }
 
-        [ConcurrencyCheck]
+        //[ConcurrencyCheck]
         public int? Price { get; set; }
 
         public string UserId { get; set; }
-        //public IdentityUser User { get; set; }
 
         public ICollection<Comment> Comments { get; set; }
         public int CommentCount { get; set; }
 
-        //[Timestamp]
-        //public byte[] Timestamp { get; set; }
     }
 
     public class Comment
