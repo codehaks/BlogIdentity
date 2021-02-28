@@ -30,6 +30,9 @@ namespace BlogIdentity.Models
         public ICollection<Comment> Comments { get; set; }
         public int CommentCount { get; set; }
 
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
+
     }
 
     public class Comment
