@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogIdentity.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210223023529_Init")]
+    [Migration("20210228164715_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -86,7 +86,6 @@ namespace BlogIdentity.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
-                        .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
