@@ -18,13 +18,8 @@ namespace BlogIdentity.Models
     public class Post
     {
         public int Id { get; set; }
-
-        //[ConcurrencyCheck]
         public string Title { get; set; }
-
-        //[ConcurrencyCheck]
         public int? Price { get; set; }
-
         public string UserId { get; set; }
 
         public ICollection<Comment> Comments { get; set; }
