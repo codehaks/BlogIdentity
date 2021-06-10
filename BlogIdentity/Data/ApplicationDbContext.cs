@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Security.Permissions;
 using System.Text;
 
 namespace BlogIdentity.Data
@@ -20,12 +21,14 @@ namespace BlogIdentity.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Post>()
-                .HasQueryFilter(p => p.UserId == _claims.UserId);
+            //builder.Entity<Post>();
+            //    .HasQueryFilter(p => p.UserId == _claims.UserId);
 
             base.OnModelCreating(builder);
         }
 
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+
     }
 }

@@ -45,6 +45,7 @@ namespace BlogIdentity
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddRazorPages();
+            services.AddControllers();
             
         }
 
@@ -74,6 +75,7 @@ namespace BlogIdentity
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }
